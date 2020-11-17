@@ -51,6 +51,21 @@ class LS_WP_Logger {
         );
     }
 
+    public static function getLogs(){
+        $logs = [];
+        $result = mysqli_query(self::connection(), 'SELECT id, type, message, reg_date FROM ' . self::TABLE_NAME . ' ORDER BY reg_date DESC LIMIT 100');
+        if (mysqli_num_rows($result) > 0) {
+            while($row = mysqli_fetch_assoc($result)) {
+                $logs[] = $row;
+            }
+        }
+        return $logs;
+    }
+
+    public static function deleteLogs(){
+        return mysqli_query(self::connection(), 'DELETE FROM ' . self::TABLE_NAME);
+    }
+
     public static function info($message){
         self::createLog($message);
     }
@@ -63,3 +78,37 @@ class LS_WP_Logger {
 register_activation_hook( __FILE__, function(){
     LS_WP_Logger::info('Plugin has activated');
 });
+
+add_action( 'admin_menu', function(){
+
+    add_menu_page(
+        'LS WP Logger',
+        'LS WP Logger',
+        'manage_options',
+        'LS-WP-Logger/menu-page.php',
+        '',
+        plugins_url( 'LS-WP-Logger/images/menu-icon.svg' ),
+        81
+    );
+});
+
+add_action( 'wp_ajax_delete_logs', function () {
+	LS_WP_Logger::deleteLogs();
+	$logs = LS_WP_Logger::getLogs();
+    echo json_encode($logs);
+	wp_die();
+});
+
+add_action( 'wp_ajax_get_logs', function () {
+    $logs = LS_WP_Logger::getLogs();
+    echo json_encode($logs);
+	wp_die();
+});
+
+add_action( 'admin_enqueue_scripts', function(){
+    wp_localize_script( 'jquery', 'lsWpAjax', 
+        array(
+            'url' => admin_url('admin-ajax.php')
+        )
+    );  
+} );
