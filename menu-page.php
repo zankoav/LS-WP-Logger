@@ -9,6 +9,11 @@
         text-decoration: none;
         font-size: 13px;
     }
+
+    .subsubsub .sub-item:focus, #remove-button:focus{
+        outline:none;
+        box-shadow: none;
+    }
 </style>
 
 <div class="wrap">
