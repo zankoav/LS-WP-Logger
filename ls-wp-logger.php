@@ -42,7 +42,7 @@ class LS_WP_Logger {
             type ENUM('error', 'info'),
             message TEXT,
             reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-        )";
+        ) CHARSET=utf8 COLLATE=utf8_general_ci";
     }
     
     private static function createLog($message, $type = 'info'){
