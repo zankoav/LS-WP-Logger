@@ -46,7 +46,7 @@
 </div>
 
 <script>
-    let logs = <?= json_encode(LS_WP_Logger::getLogs());?>;
+    let logs = <?= json_encode(LS_WP_Logger::getLogs());?> || [];
 
     let filterType;
 
