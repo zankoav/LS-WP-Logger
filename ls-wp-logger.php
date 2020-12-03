@@ -22,7 +22,7 @@ class LS_WP_Logger {
     
     private function __construct () {
         self::$_link = mysqli_connect(self::DB_HOST, self::DB_USER, self::DB_PASS, self::DB_NAME);
-        mysqli_set_charset(self::$link, "utf8");
+        mysqli_set_charset(self::$_link, "utf8");
         if(!mysqli_query(self::$_link, "DESCRIBE `" . self::TABLE_NAME . "`")){
             mysqli_query(self::$_link, self::getSqlQueryToCreateTable());
         }
