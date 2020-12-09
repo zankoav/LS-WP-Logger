@@ -1,9 +1,10 @@
-=== Page Scroll Progress ===
-Contributors: Lightning Soft
+=== LS WP Logger ===
+Contributors: lightningsoft
 Tags: log, logs, data logs
 Requires at least: 5.4
 Tested up to: 5.4
 Stable tag: 1.0.0
+Requires PHP: 5.6
 License: GPLv2 or later
 
 This plugin stores logs for your application
@@ -20,5 +21,5 @@ Upload the LS WP Logger plugin to your blog and activate it.
 
 = 1.0.0 =
 * 
-Release Date - 27 February 2020 
+Release Date - 15 December 2020 
 *
