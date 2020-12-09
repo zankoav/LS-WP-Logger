@@ -1,9 +1,10 @@
 <?php
    /*
     Plugin Name: LS WP Logger
-    description: This plugin stores logs for your application
+    Plugin URI: https://wordpress.org/plugins/ls-wp-logger
+    Description: This plugin stores logs for your application
     Version: 1.0.0
-    Author: Lightning Soft 
+    Author: Lightning Soft  
     Author URI: https://lightning-soft.com/
     License: GPL2
    */
