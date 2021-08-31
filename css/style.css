@@ -1,0 +1,19 @@
+.remove-logs {
+    float:right;
+    margin: 8px 0 0;
+}
+.remove-logs .button-link{
+    line-height: 2;
+    padding: .2em;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.subsubsub .sub-item:focus, #remove-button:focus{
+    outline:none;
+    box-shadow: none;
+}
+
+.loading{
+    padding:8px;
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="20" height="20" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve">
+    <g>
+        <g xmlns="http://www.w3.org/2000/svg">
+            <path d="m218.644 141.705c9.719 12.402 15.535 28.002 15.535 44.944 0 6.134-.77 12.091-2.201 17.787h137.685c2.362-5.458 3.677-11.471 3.677-17.787 0-24.782-20.162-44.944-44.944-44.944h-51.116l27.112-27.112-21.242-21.242-48.355 48.355h-16.151z" fill="#ffffff" data-original="#000000" style="" />
+            <path d="m289.588 278.38c0 7.437-1.124 14.615-3.2 21.38h156.943c3.455-6.362 5.419-13.646 5.419-21.38 0-24.782-20.162-44.944-44.944-44.944h-129.752c9.718 12.403 15.534 28.002 15.534 44.944z" fill="#ffffff" data-original="#000000" style="" />
+            <path d="m467.056 328.761h-135.933c9.989 12.492 15.983 28.312 15.983 45.514 0 16.682-5.636 32.065-15.086 44.374h135.036c24.782 0 44.944-20.162 44.944-44.944s-20.162-44.944-44.944-44.944z" fill="#ffffff" data-original="#000000" style="" />
+            <circle cx="274.089" cy="374.275" r="44.018" fill="#ffffff" data-original="#000000" style="" />
+            <circle cx="44.018" cy="374.275" r="44.018" fill="#ffffff" data-original="#000000" style="" />
+            <circle cx="159.053" cy="374.275" r="44.018" fill="#ffffff" data-original="#000000" style="" />
+            <circle cx="101.535" cy="278.381" r="44.018" fill="#ffffff" data-original="#000000" style="" />
+            <circle cx="216.571" cy="278.381" r="44.018" fill="#ffffff" data-original="#000000" style="" />
+            <circle cx="161.161" cy="186.65" r="44.018" fill="#ffffff" data-original="#000000" style="" />
+        </g>
+    </g>
+</svg>
