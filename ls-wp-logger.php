@@ -3,7 +3,7 @@
     Plugin Name: LS WP Logger
     Plugin URI: https://wordpress.org/plugins/ls-wp-logger
     Description: This plugin stores logs for your application
-    Version: 1.0.0
+    Version: 2.0.0
     Author: Lightning Soft  
     Author URI: https://lightning-soft.com/
     License: GPL2
@@ -11,12 +11,12 @@
 
 define('LS_WP_LOGGER_NAME', basename( __DIR__ ));
 
-require __DIR__ . '/LS_WP_Logger.php';
+require __DIR__ . '/Log.php';
 
-if(class_exists('LS_WP_Logger')){
+if(class_exists('Ls\Wp\Log')){
 
     register_activation_hook( __FILE__, function() {
-        LS_WP_Logger::info('Plugin has activated');
+        Ls\Wp\Log::info('Plugin has activated');
     });
     
     add_action( 'admin_menu', function() {
@@ -32,14 +32,14 @@ if(class_exists('LS_WP_Logger')){
     });
     
     add_action( 'wp_ajax_delete_logs', function () {
-        LS_WP_Logger::deleteLogs();
-        $logs = LS_WP_Logger::getLogs(sanitize_text_field($_POST['type']));
+        Ls\Wp\Log::deleteLogs();
+        $logs = Ls\Wp\Log::getLogs(sanitize_text_field($_POST['type']));
         echo json_encode($logs);
         wp_die();
     });
     
     add_action( 'wp_ajax_get_logs', function () {
-        $logs = LS_WP_Logger::getLogs(sanitize_text_field($_POST['type']));
+        $logs = Ls\Wp\Log::getLogs(sanitize_text_field($_POST['type']));
         echo json_encode($logs);
         wp_die();
     });
@@ -51,7 +51,7 @@ if(class_exists('LS_WP_Logger')){
             wp_localize_script( 'jquery', 'lsWpAjax', 
                 array(
                     'url' => admin_url('admin-ajax.php'),
-                    'logs' => json_encode(LS_WP_Logger::getLogs())
+                    'logs' => json_encode(Ls\Wp\Log::getLogs())
                 )
             );  
         }

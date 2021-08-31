@@ -3,6 +3,7 @@
         
         let logs = JSON.parse(lsWpAjax.logs);
         let type = null;
+        let inDeleteProcess = false;
 
         $('.sub-item').on('click', function(){
             $('#ls-wp-logger-body').html('<div class="loading">Loading...</div>');
@@ -13,11 +14,13 @@
 
         $('#remove-button').on('click', ()=>{
             $('#ls-wp-logger-body').html('<div class="loading">Loading...</div>');
+            inDeleteProcess = true;
             $.post( lsWpAjax.url, {
                 action:'delete_logs', 
                 type: type
             }).done( data => {
                 logs = JSON.parse(data);
+                inDeleteProcess = false;
                 if(logs){
                     updateTable();
                 }
@@ -31,9 +34,11 @@
                 action: 'get_logs', 
                 type: type
             }).done( data => {
-                logs = JSON.parse(data);
-                if(logs){
-                    updateTable();
+                if(!inDeleteProcess){
+                    logs = JSON.parse(data);
+                    if(logs){
+                        updateTable();
+                    }
                 }
             });
         }, 2000);
@@ -56,11 +61,15 @@
             $('#counter-error').html(`( ${errorNumber} )`);
 
             const items = bodyItems.map((item, index) => {
+                const value = JSON.stringify(JSON.parse(item.value), null, '\t');
                 return `
                     <tr class="${index%2 ? '' : 'alternate'}">
                         <td class="date column-date"
                             scope="row">${item.reg_date}</td>
-                        <td class="column-columnname">${item.message}</td>
+                        <td class="column-columnname">
+                            <b>${item.title}</b>
+                            <pre>${value}</pre>
+                        </td>
                         <td class="column-columnname">${item.type}</td>
                     </tr>
                 `;
